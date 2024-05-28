@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="date"] {
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      padding: 10px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #result {
+      display: none;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    #selectedDate {
+      color: #4caf50;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Date Booking</h2>
+    <form action="calender.php" id="bookingForm" onsubmit="storeItem(event)">
+      <label for="date">Date:</label>
+      <input type="date" id="date" required>
+      <input type="submit" value="Submit">
+    </form>
+    <p id="result">Item to be stored: <span id="selectedDate"></span></p>
+  </div>
+
+  <script>
+    function storeItem(event) {
+      event.preventDefault();
+      var selectedDateElement = document.getElementById("date");
+      var selectedDate = selectedDateElement.value;
+
+      var resultElement = document.getElementById("result");
+      var selectedDateDisplay = document.getElementById("selectedDate");
+      selectedDateDisplay.textContent = selectedDate;
+      resultElement.style.display = "block";
+    }
+  </script>
+</body>
+</html>
